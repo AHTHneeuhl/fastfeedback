@@ -9,8 +9,6 @@ export default function Home() {
     <>
       <Head>
         <title>Fast Feedback</title>
-        <meta name="description" content="Get feedback... fast." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Flex
         as="main"
@@ -27,9 +25,11 @@ export default function Home() {
         </Icon>
 
         {user ? (
-          <Button onClick={() => signout()}>Sign Out</Button>
+          <Button as="a" href="/dashboard">
+            View Dashboard
+          </Button>
         ) : (
-          <Button mt={4} size="sm" onClick={() => signinWithGitHub()}>
+          <Button mt={4} size="sm" onClick={(e) => signinWithGitHub()}>
             Sign In
           </Button>
         )}
