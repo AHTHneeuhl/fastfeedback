@@ -29,7 +29,7 @@ const AddSiteModal = ({ children }) => {
 
   const onCreateSite = ({ name, url }) => {
     const newSite = {
-      autherId: user.uid,
+      authorId: user.uid,
       createdAt: new Date().toISOString(),
       name,
       url,
@@ -43,7 +43,7 @@ const AddSiteModal = ({ children }) => {
       isClosable: true,
     });
     mutate(
-      '/api/sites',
+      ['/api/sites', user.token],
       async (sites) => {
         return [...sites, newSite];
       },

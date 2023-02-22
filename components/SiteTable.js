@@ -17,7 +17,7 @@ const SiteTable = ({ sites }) => {
       </thead>
       <tbody>
         {sites.map((site) => (
-          <Box as="tr" key={site.url}>
+          <Box as="tr" key={site.createdAt}>
             <Td fontWeight="medium">{site.name}</Td>
             <Td>
               <Link href={site.url} color="darkslateblue" isExternal>
@@ -26,7 +26,9 @@ const SiteTable = ({ sites }) => {
             </Td>
             <Td>
               <NextLink href="/p/[siteId]" as={`/p/${site.id}`} passHref>
-                <Link color="darkslateblue">View Feedback</Link>
+                <Link as="span" color="darkslateblue">
+                  View Feedback
+                </Link>
               </NextLink>
             </Td>
             <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
