@@ -44,7 +44,7 @@ const AddSiteModal = ({ children }) => {
     });
     mutate(
       ['/api/sites', user.token],
-      async (sites) => [...sites, { id, ...newSite }],
+      async (sites) => [{ id, ...newSite }, ...sites],
       false
     );
     onClose();

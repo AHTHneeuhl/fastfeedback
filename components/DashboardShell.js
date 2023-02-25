@@ -7,7 +7,12 @@ const DashboardShell = ({ children }) => {
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
-      <Flex backgroundColor="white" mb={16} w="full">
+      <Flex
+        backgroundColor="white"
+        mb={16}
+        w="full"
+        borderTop="5px solid #0AF5F4"
+      >
         <Flex
           alignItems="center"
           justifyContent="space-between"

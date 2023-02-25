@@ -40,19 +40,25 @@ const SiteFeedback = ({ initialFeedback }) => {
         <FormControl my={8}>
           <FormLabel htmlFor="comment">Comment</FormLabel>
           <Input ref={inputRef} id="comment" name="comment" type="text" />
-          <Button type="submit" fontWeight="medium" mt={2}>
+          <Button
+            type="submit"
+            fontWeight="medium"
+            mt={2}
+            disabled={router.isFallback}
+          >
             Add Comment
           </Button>
         </FormControl>
       </Box>
-      {allFeedback.map((feedback) => (
-        <Feedback
-          key={feedback.createdAt}
-          author={feedback.author}
-          text={feedback.text}
-          createdAt={feedback.createdAt}
-        />
-      ))}
+      {allFeedback &&
+        allFeedback.map((feedback) => (
+          <Feedback
+            key={feedback.createdAt}
+            author={feedback.author}
+            text={feedback.text}
+            createdAt={feedback.createdAt}
+          />
+        ))}
     </Box>
   );
 };
@@ -77,7 +83,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
